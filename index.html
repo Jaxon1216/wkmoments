@@ -83,6 +83,11 @@
     .post-tag.todo { background: #e67e22; }
     .post-tag.log { background: #3498db; }
     .post-tag.viz { background: #2ecc71; }
+    .post-tag.plan { background: #9b59b6; }
+    .post.plan {
+      border-left: 4px solid #9b59b6;
+      background: #1a1a3e;
+    }
 
     .post-time {
       font-size: 0.8rem;
@@ -144,7 +149,7 @@
         }
         posts.sort((a, b) => new Date(b.time) - new Date(a.time));
         feed.innerHTML = posts.map(p => `
-          <div class="post">
+          <div class="post ${p.tag === 'plan' ? 'plan' : ''}">
             <div class="post-meta">
               <span class="post-tag ${p.tag}">${p.tagLabel}</span>
               <span class="post-time">${p.time}</span>
